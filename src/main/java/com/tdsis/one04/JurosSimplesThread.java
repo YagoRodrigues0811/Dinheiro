@@ -14,7 +14,7 @@ public class JurosSimplesThread implements Runnable{
 		double taxa = 0;
 		System.out.println("Cálculo de Juros Simples");
 		System.out.println("Digite o Valor a ser Financiado");
-		BigDecimal valorInicial = new BigDecimal(sc.nextDouble());
+		BigDecimal valorInicial = sc.nextBigDecimal();
 		System.out.println("Digite o Número de Prestações");
 		prestacoes = sc.nextInt();
 		System.out.println("Digite a Taxa de Juros do Financiamento");

@@ -38,7 +38,28 @@ public class Main {
 			  }
 			break;
         case 2:
-			
+        	JurosCompostosThread jc = new JurosCompostosThread();
+			  jc.run();
+			  op = 0;
+			  try{
+			  System.out.println("Quer Continuar no Sistema");
+			  System.out.println("1 - Sim");
+			  System.out.println("2 - Não");
+			  op = sc.nextInt();
+			  }catch (Exception e) {
+				// TODO: handle exception
+				  eh.errorHandling(args, sc);
+			}
+			  if(op == 1){
+			     main(args);
+			  } else if(op == 2){
+				  System.out.println("Até Mais");
+				 System.exit(0);  
+			  } else {
+				  System.out.println("");
+				  eh.errorHandling(args, sc);
+				  
+			  }
 			break;
 
 		default:

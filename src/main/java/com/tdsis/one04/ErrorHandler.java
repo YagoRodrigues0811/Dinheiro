@@ -14,6 +14,7 @@ public class ErrorHandler {
 		if(op == 1){
 	        Main.main(args);
 		} else if(op == 2){
+			System.out.println("Até Mais");
 			System.exit(0);
 		} else {
 			errorHandling(args, sc);
