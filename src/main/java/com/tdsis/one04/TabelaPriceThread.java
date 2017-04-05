@@ -28,12 +28,16 @@ public class TabelaPriceThread implements Runnable {
 		BigDecimal amortizacao = new BigDecimal(0);
 		BigDecimal saldoDevedor = valorInicial;
 		System.out.println(
+				"----------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"------------------------------Tabela De Financiamento Do Tipo Price---------------------------------");
+		System.out.println(
 				"Num Prestação -------- Valor Prestação -------- Juros --------- Amortização ---------- Saldo Devedor");
 		for (int i = 0; i <= qtdPrestacoes; i++) {
-			System.out
-					.println("----" + i + "---------------------" + valorPrestacoes.setScale(2, BigDecimal.ROUND_CEILING)
-							+ "-------------------" + juros.setScale(2, BigDecimal.ROUND_HALF_DOWN) + "-------------------"
-							+ amortizacao.setScale(2, BigDecimal.ROUND_CEILING) + "------------"
+			System.out.println(
+					"----" + i + "---------------------" + valorPrestacoes.setScale(2, BigDecimal.ROUND_CEILING)
+							+ "-------------------" + juros.setScale(2, BigDecimal.ROUND_HALF_DOWN)
+							+ "-------------------" + amortizacao.setScale(2, BigDecimal.ROUND_CEILING) + "------------"
 							+ saldoDevedor.setScale(2, BigDecimal.ROUND_HALF_DOWN));
 			juros = saldoDevedor.multiply(new BigDecimal(taxa / 100));
 			amortizacao = valorPrestacoes.subtract(juros);
