@@ -19,13 +19,13 @@ public class JurosSimplesThread implements Runnable{
 		prestacoes = sc.nextInt();
 		System.out.println("Digite a Taxa de Juros do Financiamento");
 		taxa = sc.nextDouble();
-		BigDecimal montante = calcMontante(valorInicial, prestacoes, taxa);
+		BigDecimal montante = calcMontante(valorInicial,  taxa);
 		BigDecimal valorPrestacao = calcPrestacao(montante, prestacoes);
 		System.out.println("Valor do Montante -------------- "+NumberFormat.getCurrencyInstance().format(montante));
 		System.out.println("Valor da Prestação -------------- "+NumberFormat.getCurrencyInstance().format(valorPrestacao));
 	}
 	
-	public BigDecimal calcMontante(BigDecimal valorInicial, int prestacoes, double taxa) {
+	public BigDecimal calcMontante(BigDecimal valorInicial, double taxa) {
 		BigDecimal valorFinal = new BigDecimal(0);
 		valorFinal = valorInicial.add(valorInicial.multiply(new BigDecimal(taxa/100)));
 		System.out.println("--------------------------------------------------");
