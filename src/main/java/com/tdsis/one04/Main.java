@@ -12,6 +12,7 @@ public class Main {
 		System.out.println("1 - Calculo de Juros Simples");
 		System.out.println("2 - Tabela de Juros Compostos");
 		System.out.println("3 - Tabela Price");
+		System.out.println("4 - Tabela SAC");
 		opcao = sc.nextInt();
 		
 		switch (opcao) {

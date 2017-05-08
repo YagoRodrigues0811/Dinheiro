@@ -1,6 +1,7 @@
 package com.tdsis.one04;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.util.Scanner;
 
@@ -21,7 +22,7 @@ public class TabelaSACThread implements Runnable{
 		System.out.println("Digite a Taxa de Juros");
 		taxa = sc.nextDouble()/100;
 		// Cálculo do Valor da Amortizaçãp
-		valorAmortizacao = valorInicial.divide(new BigDecimal(qtdPrestacoes));
+		valorAmortizacao = valorInicial.divide(new BigDecimal(qtdPrestacoes), RoundingMode.HALF_EVEN);
 		// Tabela SAC
 		BigDecimal valorPago = new BigDecimal(0);
 		valorPrestacoes = valorAmortizacao.add(valorInicial.multiply(new BigDecimal(taxa)));
