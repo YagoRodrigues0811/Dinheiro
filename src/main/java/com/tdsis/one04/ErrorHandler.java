@@ -20,4 +20,21 @@ public class ErrorHandler {
 			errorHandling(args, sc);
 		}
 	}
+	
+	public void errorHandling(JurosSimplesThread thread, Scanner sc) {
+		int op = 0;
+		System.err.println("Opção Inválida");
+		System.out.println("Tentar Novamente");
+		System.out.println("1 - Sim");
+		System.out.println("2 - Não");
+		op = sc.nextInt();
+		if(op == 1){
+	        thread.run();
+		} else if(op == 2){
+			System.out.println("Até Mais");
+			System.exit(0);
+		} else {
+			errorHandling(thread, sc);
+		}
+	}
 }

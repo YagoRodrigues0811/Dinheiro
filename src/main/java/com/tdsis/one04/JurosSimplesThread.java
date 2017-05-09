@@ -1,6 +1,7 @@
 package com.tdsis.one04;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.util.Scanner;
 
@@ -33,7 +34,7 @@ public class JurosSimplesThread implements Runnable{
 	
 	public BigDecimal calcPrestacao(BigDecimal montante, int prestacoes) {
 		BigDecimal valorPrestacao = new BigDecimal(0);
-		valorPrestacao = montante.divide(new BigDecimal(prestacoes));
+		valorPrestacao = montante.divide(new BigDecimal(prestacoes), RoundingMode.HALF_EVEN);
 		System.out.println("--------------------------------------------------");
 		return valorPrestacao;
 	}
