@@ -6,24 +6,40 @@ import java.util.Scanner;
 
 public class TabelaPriceThread implements Runnable {
 
+	private Scanner sc = new Scanner(System.in);
+	private int qtdPrestacoes = 0;
+	private double taxa;
+	
+	private BigDecimal 
+	valorPrestacoes = new BigDecimal(0), 
+	valorInicial = new BigDecimal(0);
+
 	public void run() {
-		// TODO Auto-generated method stub
-		Scanner sc = new Scanner(System.in);
-		int qtdPrestacoes = 0;
-		double taxa, coeficiente;
-		BigDecimal valorPrestacoes = new BigDecimal(0);
+
+		recebimentoDados();
+		calculaValorPrestacoes();
+		montagemTabelaPrice();
+
+	}
+
+	private void recebimentoDados() {
 		System.out.println("Tabela Price");
 		System.out.println("Digite o Valor a Ser Financiado");
-		BigDecimal valorInicial = sc.nextBigDecimal();
+		valorInicial = sc.nextBigDecimal();
 		System.out.println("Digite a Quantidade de Prestações");
 		qtdPrestacoes = sc.nextInt();
 		System.out.println("Digite a Taxa de Juros");
 		taxa = sc.nextDouble();
-		// Cálculo do Valor das Prestações
-		coeficiente = (Math.pow(1 + (taxa / 100), qtdPrestacoes) * (taxa / 100))
+	}
+
+	private void calculaValorPrestacoes() {
+		double coeficiente = (Math.pow(1 + (taxa / 100), qtdPrestacoes) * (taxa / 100))
 				/ (Math.pow(1 + (taxa / 100), qtdPrestacoes) - 1);
 		valorPrestacoes = valorInicial.multiply(new BigDecimal(coeficiente));
-		// Tabela Price
+
+	}
+
+	private void montagemTabelaPrice() {
 		BigDecimal juros = new BigDecimal(0);
 		BigDecimal amortizacao = new BigDecimal(0);
 		BigDecimal saldoDevedor = valorInicial;
@@ -51,10 +67,7 @@ public class TabelaPriceThread implements Runnable {
 				+ "--------------------------------------------------------------------------------");
 		System.out.println(
 				"---------------------------------------------------------------------------------------------------------------------");
-		System.out.println(
-				"---------------------------------------------------------------------------------------------------------------------");
-		System.out.println(
-				"---------------------------------------------------------------------------------------------------------------------");
+
 	}
 
 }
